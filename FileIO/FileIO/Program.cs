@@ -17,12 +17,32 @@ namespace FileIO
                 Console.WriteLine("not Exist");
             }
         }
-        
+        public static void ReadFile()
+        {
+            string InputFile = @"G:\visualstudio\FileIOTextFile\FileIO.txt";
+            using (StreamReader read = new StreamReader(InputFile))
+            {
+                string s = "";
+                while ((s = read.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+                read.Close();
+            }
+        }
+        public static void CopyFile()
+        {
+            string path = @"G:\visualstudio\FileIOTextFile\FileIO.txt";
+            string CopyPath = @"G:\visualstudio\FileIOTextFile\FileIO1.txt";
+            File.Copy(path, CopyPath);
+        }
         public static void Main(string[]args)
         {
 
 
             FileExist();
+            ReadFile();
+            CopyFile();
             
         }
     }
