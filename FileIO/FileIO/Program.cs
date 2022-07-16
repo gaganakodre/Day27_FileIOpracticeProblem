@@ -17,7 +17,11 @@ namespace FileIO
                 Console.WriteLine("not Exist");
             }
         }
-        public static void ReadFile()
+
+        
+
+         public static void ReadFile()
+
         {
             string InputFile = @"G:\visualstudio\FileIOTextFile\FileIO.txt";
             using (StreamReader read = new StreamReader(InputFile))
@@ -30,10 +34,11 @@ namespace FileIO
                 read.Close();
             }
         }
+
         public static void CopyFile()
         {
             string path = @"G:\visualstudio\FileIOTextFile\FileIO.txt";
-            string CopyPath = @"G:\visualstudio\FileIOTextFile\FileIO1.txt";
+            string CopyPath = @"G:\visualstudio\FileIOTextFile\FileIO1.txt";//here i will get a exception buz file is already copied
             File.Copy(path, CopyPath);
         }
         public static void DeleteFile()
@@ -42,13 +47,13 @@ namespace FileIO
             File.Delete(Path);
             Console.WriteLine("File deleted sucessfully");
         }
-        public static void ReadAllText()
+        public static void ReadAllText()//it will raed all the text in the files
         {
             String path = @"G:\visualstudio\FileIOTextFile\FileIO.txt";
             string lines;
-            lines = File.ReadAllText(path);
+            lines = File.ReadAllText(path);//it will return the string
             Console.WriteLine(lines);
-            Console.ReadKey();
+            
         }
         public static void ReadStreamReader()
         {
@@ -74,6 +79,7 @@ namespace FileIO
             }
             Console.ReadKey();
         }
+
         public static void Main(string[]args)
         {
 
@@ -85,6 +91,8 @@ namespace FileIO
             ReadAllText();
             WriteUsingStreamWriter();
             ReadStreamReader();
+            ReadFile();
+
             
         }
     }
